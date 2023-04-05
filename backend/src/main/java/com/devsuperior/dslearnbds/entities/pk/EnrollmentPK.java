@@ -1,9 +1,11 @@
-package com.devsuperior.dslearnbds.entities;
+package com.devsuperior.dslearnbds.entities.pk;
+
+import com.devsuperior.dslearnbds.entities.Offer;
+import com.devsuperior.dslearnbds.entities.User;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
