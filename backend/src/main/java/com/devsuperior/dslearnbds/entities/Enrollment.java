@@ -1,12 +1,11 @@
 package com.devsuperior.dslearnbds.entities;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_enrollment")
@@ -22,6 +21,9 @@ public class Enrollment implements Serializable {
     private Instant refundMoment;
     private boolean available;
     private boolean onlyUpdate;
+
+    @ManyToMany(mappedBy = "enrollmentsDone")
+    private Set<Lesson> lessonsDone = new HashSet<Lesson>();
 
     public Enrollment() {
     }
@@ -67,19 +69,19 @@ public class Enrollment implements Serializable {
         this.onlyUpdate = onlyUpdate;
     }
 
-    public User getStudant(){
+    public User getStudant() {
         return id.getUser();
     }
 
-    public void setStudent(User user){
+    public void setStudent(User user) {
         id.setUser(user);
     }
 
-    public Offer getOffer(){
+    public Offer getOffer() {
         return id.getOffer();
     }
 
-    public void setOffer(Offer Offer){
+    public void setOffer(Offer Offer) {
         id.setOffer(Offer);
     }
 
