@@ -3,9 +3,11 @@ package com.devsuperior.dslearnbds.dto;
 
 import com.devsuperior.dslearnbds.entities.Notification;
 
+import java.io.Serializable;
 import java.time.Instant;
 
-public class NotificationDTO {
+public class NotificationDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private String text;
